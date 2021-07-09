@@ -22,16 +22,7 @@ namespace HomeSecuritySolution
             
         }
 
-        public void Add_Observer(SensorHanlder observer)
-        {
-            observers.Add(observer);
-        }
-        public void Remove_Observer(SensorHanlder observer)
-        {
-
-            observers.Remove(observer);
-        }
-
+      
 
 
     }
