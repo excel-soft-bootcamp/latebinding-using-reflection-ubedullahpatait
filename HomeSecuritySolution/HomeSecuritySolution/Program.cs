@@ -15,7 +15,7 @@ namespace HomeSecuritySolution
             SensorHanlder _addressOfNotify = new SensorHanlder(_DoorSensor.update);
 
             DoorSensor status = new DoorSensor();
-            status.Add_Observer(_addressOfNotify);
+            status.OnSensor+=_addressOfNotify;
 
             status.open();
             status.close();
