@@ -8,15 +8,11 @@ namespace HomeSecuritySolution
 {
     class SecuritySytem
     {
-        public void update(String status)
-        {
-            this.SMS();
+            var time = System.DateTime.Now;
+            String date = time.ToString("yyyy,MM,dd,hh");
 
-            public void SMS()
-            {
-
-            }
-        }
-
+            string message = $"Door {status} and time is {time} {date}";
+            Console.WriteLine(message);
+ 
     }
 }
