@@ -11,14 +11,14 @@ namespace HomeSecuritySolution
         static void Main(string[] args)
         {
 
-            SecuritySytem _DoorSensor = new SecuritySytem();
-            SensorHanlder _addressOfNotify = new SensorHanlder(_DoorSensor.update);
+             SecuritySytem securityRef = new SecuritySytem();
+            SensorHanlder _addressOfNotify = new SensorHanlder(securityRef.AlertMessage);
 
-            DoorSensor status = new DoorSensor();
-            status.OnSensor+=_addressOfNotify;
-
-            status.open();
-            status.close();
+            DoorSensor _doorSensor = new DoorSensor();
+            _doorSensor.OnSensorStatus += _addressOfNotify;
+            _doorSensor.open();
+            _doorSensor.open();
+            Console.ReadKey();
 
 
 
