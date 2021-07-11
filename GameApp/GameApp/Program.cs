@@ -8,23 +8,44 @@ namespace GameApp
 {
     class Program
     {
-        public enum Options
+      public enum Options
         {
-            BASIC = 1, INTERMEDIATE, ADVANCED
+            BASIC= 1,INTERMEDIATE,ADVANCED
         }
-
         static void Main(string[] args)
         {
-            Console.WriteLine("Word Guess Game");
-            
-            string retry = "NO";
-            do { 
-            string message = string.Format("Enter Your Choice {0}->Basic , {1}->Intermediate ,{2}->Advanced", Options.BASIC, Options.INTERMEDIATE, Options.ADVANCED);
-            string displayMessage = $"Enter Your Choice {(int)Options.BASIC}->Basic,{(int)Options.INTERMEDIATE}->Intermediate,{(int)Options.ADVANCED}->Advanced";
-            Console.WriteLine(displayMessage);
-          
 
-                Options _choice = (Options)Int32.Parse(Console.ReadLine());
+
+            int count=3;
+           
+
+            do
+            {
+                string message = string.Format("Enter Your Choice {0}->basic , {1}->intermediate,{2}->advance ", Options. BASIC, Options.INTERMEDIATE,Option.ADVANCED); 
+                string displayMessage = $"Enter Your Choice {(int)Options.BASIC}->basic,{(int)Options.INTERMEDIATE}->intermediate, {(int)Options.ADVANCED}->advance ";
+                Console.WriteLine(displayMessage);
+                try
+                {
+                    int choice = (Options)Int32.Parse(Console.ReadLine());
+
+                    if (choice < 1 || choice > 3)
+                    {
+                        Console.WriteLine("invalid option");
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                catch (FormatException ex )
+                {
+                    Console.WriteLine("choice should be number");
+                }
+                --count;
+
+            }
+            while (count > 0);
+
 
                 switch (_choice)
                 {
@@ -92,22 +113,14 @@ namespace GameApp
                         }
                         break;
 
-                    default:
-
-                        Console.WriteLine("your choice is not in list");
-                        Console.WriteLine("would you like to retry");
-                        retry = Console.ReadLine();
-
-                        break;
+                  
 
 
-
-
-                }
+                
                 
 
             }
-            while (retry != "NO");
+          
 
 
 
