@@ -27,7 +27,7 @@ namespace GameApp
                 {
                     int choice = Int32.Parse(Console.ReadLine());
 
-                    if (choice < 1 || choice > 3)
+                    if ((int)choice < 1 || (int)choice > 3)
                     {
                         Console.WriteLine("invalid option");
                     }
