@@ -20,7 +20,7 @@ namespace GameApp
             int count = 3;
             do
             {
-                string message = string.Format("Enter Your Choice {0}->basic , {1}->intermediate,{2}->advance ", Options.BASIC, Options.INTERMEDIATE, Option.ADVANCED);
+                string message = string.Format("Enter Your Choice {0}->basic , {1}->intermediate,{2}->advance ", Options.BASIC, Options.INTERMEDIATE, Options.ADVANCED);
                 string displayMessage = $"Enter Your Choice {(int)Options.BASIC}->basic,{(int)Options.INTERMEDIATE}->intermediate, {(int)Options.ADVANCED}->advance ";
                 Console.WriteLine(displayMessage);
                 try
