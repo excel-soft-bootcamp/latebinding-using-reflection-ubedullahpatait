@@ -18,7 +18,7 @@ namespace GameApp
         {
             Console.WriteLine("Word Guess Game");
             int count = 3;
-            Options choice = default(Options);
+          
             do
             {
                 string message = string.Format("Enter Your Choice {0}->basic , {1}->intermediate,{2}->advance ", Options.BASIC, Options.INTERMEDIATE, Options.ADVANCED);
@@ -45,6 +45,8 @@ namespace GameApp
 
             }
             while (count > 0);
+              Options choice = default(Options);
+            
             switch (choice)
             {
                 case Options.BASIC:
