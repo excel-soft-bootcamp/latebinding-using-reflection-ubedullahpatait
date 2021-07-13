@@ -64,7 +64,7 @@ namespace GameApp
                     System.Type intermediateLevelTypeclassRef = FindClass(intermediateeLevelLib, "IntermediateLevelLib.BasicLevelType");
                     Object objReference = System.Activator.CreateInstance(intermediateLevelTypeclassRef);
                     System.Reflection.MethodInfo methodInfo1 = intermediateLevelTypeclassRef.GetMethod("Start");
-                    object result1 = InvokeMethod(objReference, methodInfo1, new object[] { "ubed"});
+                    object _result = InvokeMethod(objReference, methodInfo1, new object[] { "ubed"});
                     break;
                    
 
@@ -75,7 +75,7 @@ namespace GameApp
                     System.Type advanceLevelTypeclassRef = FindClass(advanceLevelLib, "AdvanceLevelLib.BasicLevelType");
                     Object _objRef = System.Activator.CreateInstance(advanceLevelTypeclassRef);
                     System.Reflection.MethodInfo _methodInfo = advanceLevelTypeclassRef.GetMethod("Begin");
-                    object result3 = InvokeMethod(_objRef, _methodInfo, new object[] {"ubed" ,100 });
+                    object result1 = InvokeMethod(_objRef, _methodInfo, new object[] {"ubed" ,100 });
                     break;
 
                    
