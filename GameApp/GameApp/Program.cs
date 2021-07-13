@@ -8,25 +8,24 @@ namespace GameApp
 {
     class Program
     {
-      public enum Options
+      
+        public enum Options
         {
-            BASIC= 1,INTERMEDIATE,ADVANCED
+            BASIC = 1, INTERMEDIATE, ADVANCED
         }
+
         static void Main(string[] args)
         {
 
-
-            int count=3;
-           
-
+            int count = 3;
             do
             {
-                string message = string.Format("Enter Your Choice {0}->basic , {1}->intermediate,{2}->advance ", Options. BASIC, Options.INTERMEDIATE,Option.ADVANCED); 
+                string message = string.Format("Enter Your Choice {0}->basic , {1}->intermediate,{2}->advance ", Options.BASIC, Options.INTERMEDIATE, Option.ADVANCED);
                 string displayMessage = $"Enter Your Choice {(int)Options.BASIC}->basic,{(int)Options.INTERMEDIATE}->intermediate, {(int)Options.ADVANCED}->advance ";
                 Console.WriteLine(displayMessage);
                 try
                 {
-                    int choice = (Options)Int32.Parse(Console.ReadLine());
+                    int choice = Int32.Parse(Console.ReadLine());
 
                     if (choice < 1 || choice > 3)
                     {
@@ -37,7 +36,7 @@ namespace GameApp
                         break;
                     }
                 }
-                catch (FormatException ex )
+                catch (FormatException ex)
                 {
                     Console.WriteLine("choice should be number");
                 }
@@ -45,76 +44,64 @@ namespace GameApp
 
             }
             while (count > 0);
+            switch (choice)
+            {
+                case Options.BASIC:
+                    Console.WriteLine("Basic Level");
+                    System.Reflection.Assembly basicLevelLib =
+                     System.Reflection.Assembly.LoadFile(@"C:\Users\ubedullah.patait\source\repos\GameApp\GameApp\bin\Debug\LevelLibs\BasicLevelLib.dll");
+                    System.Type basicLevelTypeclassRef = FindClass(basicLevelLib, "BasicLevelLib.BasicLevelType");
+                    Object objRef = System.Activator.CreateInstance(basicLevelTypeclassRef);
+                    System.Reflection.MethodInfo methodInfo = basicLevelTypeclassRef.GetMethod("play");
+                    object result = InvokeMethod(objRef, methodInfo, new object[] { });
+                    break;
+
+                case Options.INTERMEDIATE:
+
+                    Console.WriteLine("Intermediate Level");
+                    System.Reflection.Assembly intermediateeLevelLib =
+                    System.Reflection.Assembly.LoadFile(@"C:\Users\ubedullah.patait\source\repos\GameApp\GameApp\bin\Debug\LevelLibs\IntermediateLevelLib.dll");
+                    System.Type intermediateLevelTypeclassRef = FindClass(intermediateeLevelLib, "BasicLevelLib.BasicLevelType");
+                    Object objReference = System.Activator.CreateInstance(intermediateLevelTypeclassRef);
+                    System.Reflection.MethodInfo methodInfo1 = intermediateLevelTypeclassRef.GetMethod("Start");
+                    object result1 = InvokeMethod(objReference, methodInfo1, new object[] { "ubed"});
+                    break;
+                   
+
+                case Options.ADVANCED:
+                    Console.WriteLine("Advance Level");
+                    System.Reflection.Assembly advanceLevelLib =
+                    System.Reflection.Assembly.LoadFile(@"C:\Users\ubedullah.patait\source\repos\GameApp\GameApp\bin\Debug\LevelLibs\AdvanceLevelLib.dll");
+                    System.Type advanceLevelTypeclassRef = FindClass(advanceLevelLib, "BasicLevelLib.BasicLevelType");
+                    Object _objRef = System.Activator.CreateInstance(advanceLevelTypeclassRef);
+                    System.Reflection.MethodInfo _methodInfo = advanceLevelTypeclassRef.GetMethod("Begin");
+                    object result3 = InvokeMethod(_objRef, _methodInfo, new object[] {"ubed" ,100 });
+                    break;
+
+                   
+            }
 
 
-                switch (_choice)
+        }
+
+        static System.Type FindClass(System.Reflection.Assembly _assemblyRef, string name)
+        {
+            System.Type classType = _assemblyRef.GetType(name);
+            if (classType != null)
+            {
+                if (classType.IsClass)
                 {
-                    case Options.BASIC:
-                        Console.WriteLine("Basic Level");
-                        System.Reflection.Assembly basicLevelLib =
-                                 System.Reflection.Assembly.LoadFile(@"C:\Users\ubedullah.patait\source\repos\GameApp\GameApp\bin\Debug\LevelLibs\BasicLevelLib.dll");
-                        System.Type basicLevelTypeClassRef = basicLevelLib.GetType("BasicLevelLib.BasicLevelType");
-                        if (basicLevelTypeClassRef != null)
-                        {
-                            if (basicLevelTypeClassRef.IsClass)
-                            {
-                                Object objRef = System.Activator.CreateInstance(basicLevelTypeClassRef);
-                                System.Reflection.MethodInfo _methodRef = basicLevelTypeClassRef.GetMethod("Play");
-                                if (!_methodRef.IsStatic)
-                                {
-                                    object result = _methodRef.Invoke(objRef, new object[] { });
-                                    Console.WriteLine(result.ToString());
-                                }
+                    return classType;
+                }
+            }
+            return null;
+        }
 
-                            }
 
-                        }
-                        break;
-
-                    case Options.INTERMEDIATE:
-                        Console.WriteLine("Intermediate Level");
-                        System.Reflection.Assembly intermediateLevelLib =
-                            System.Reflection.Assembly.LoadFile(@"C:\Users\ubedullah.patait\source\repos\GameApp\GameApp\bin\Debug\LevelLibs\IntermediateLevelLib.dll");
-                        System.Type intermediateLevelTypeClassRef = intermediateLevelLib.GetType("IntermediateLevelLib.IntermediateLevelType");
-                        if (intermediateLevelTypeClassRef != null)
-                        {
-                            if (intermediateLevelTypeClassRef.IsClass)
-                            {
-                                Object intermediateObj = System.Activator.CreateInstance(intermediateLevelTypeClassRef);
-                                System.Reflection.MethodInfo methodRef = intermediateLevelTypeClassRef.GetMethod("Start");
-
-                                if (!methodRef.IsStatic)
-                                {
-                                    object result = methodRef.Invoke(intermediateObj, new object[] { "ubed" });
-                                    Console.WriteLine(result.ToString());
-                                }
-                            }
-                        }
-
-                        break;
-
-                    case Options.ADVANCED:
-                        Console.WriteLine("Advanced Level");
-                        System.Reflection.Assembly advancedLevelLib =
-                            System.Reflection.Assembly.LoadFile(@"C:\Users\ubedullah.patait\source\repos\GameApp\GameApp\bin\Debug\LevelLibs\AdvancedLevelLib.dll");
-                        System.Type advancedLevelTypeClassRef = advancedLevelLib.GetType("AdvancedLevelLib.AdvancedLevelType");
-                        if (advancedLevelTypeClassRef != null)
-                        {
-                            if (advancedLevelTypeClassRef.IsClass)
-                            {
-                                Object advancedObj = System.Activator.CreateInstance(advancedLevelTypeClassRef);
-                                System.Reflection.MethodInfo methodRef = advancedLevelTypeClassRef.GetMethod("Begin");
-                                if (!methodRef.IsStatic)
-                                {
-                                    object result = methodRef.Invoke(advancedObj, new object[] { "ubed", 100 });
-                                    Console.WriteLine(result.ToString());
-                                }
-                            }
-                        }
-                        break;
-
-                  
-
+        static object InvokeMethod(object source, System.Reflection.MethodInfo methodRef, object[] arguments)
+        {
+            return methodRef.Invoke(source, arguments);
+        }
 
                 
                 
@@ -124,9 +111,8 @@ namespace GameApp
 
 
 
-
-
-        }
-
-    }
 }
+
+        
+
+    
