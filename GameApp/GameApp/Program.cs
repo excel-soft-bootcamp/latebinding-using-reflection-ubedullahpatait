@@ -26,7 +26,7 @@ namespace GameApp
                 Console.WriteLine(displayMessage);
                 try
                 {
-                    int choice = Int32.Parse(Console.ReadLine());
+                    Options choice = Int32.Parse(Console.ReadLine());
 
                     if ((int)choice < 1 || (int)choice > 3)
                     {
