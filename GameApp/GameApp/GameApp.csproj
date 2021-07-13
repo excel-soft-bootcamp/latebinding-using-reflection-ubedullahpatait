@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LevelLib\LevelLib.csproj">
+      <Project>{1ba2f5c0-c87c-413e-a24e-f1ec22f189a9}</Project>
+      <Name>LevelLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

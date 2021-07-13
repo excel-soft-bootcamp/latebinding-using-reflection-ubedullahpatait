@@ -12,3 +12,6 @@ C:\Users\ubedullah.patait\Documents\GitHub\latebinding-using-reflection-ubedulla
 C:\Users\ubedullah.patait\Documents\GitHub\latebinding-using-reflection-ubedullahpatait\GameApp\GameApp\obj\Debug\GameApp.csproj.CoreCompileInputs.cache
 C:\Users\ubedullah.patait\Documents\GitHub\latebinding-using-reflection-ubedullahpatait\GameApp\GameApp\obj\Debug\GameApp.exe
 C:\Users\ubedullah.patait\Documents\GitHub\latebinding-using-reflection-ubedullahpatait\GameApp\GameApp\obj\Debug\GameApp.pdb
+C:\Users\ubedullah.patait\Documents\GitHub\latebinding-using-reflection-ubedullahpatait\GameApp\GameApp\bin\Debug\LevelLib.dll
+C:\Users\ubedullah.patait\Documents\GitHub\latebinding-using-reflection-ubedullahpatait\GameApp\GameApp\bin\Debug\LevelLib.pdb
+C:\Users\ubedullah.patait\Documents\GitHub\latebinding-using-reflection-ubedullahpatait\GameApp\GameApp\obj\Debug\GameApp.csproj.CopyComplete

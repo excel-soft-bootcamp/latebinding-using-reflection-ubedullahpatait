@@ -15,6 +15,7 @@ namespace GameApp
 
         static void Main(string[] args)
         {
+          
 
             int count = 3;
             // Options choice = default(Options);
@@ -26,6 +27,7 @@ namespace GameApp
                 try
                 {
                     Options choice = (Options)Int32.Parse(Console.ReadLine());
+                    
 
                     if (choice == Options.BASIC || choice == Options.INTERMEDIATE || choice == Options.ADVANCED)
                     {
@@ -35,10 +37,10 @@ namespace GameApp
                                 Console.WriteLine("Basic Level");
                                 System.Reflection.Assembly basicLevelLib =
                                  System.Reflection.Assembly.LoadFile(@"C:\Users\ubedullah.patait\Documents\GitHub\latebinding-using-reflection-ubedullahpatait\GameApp\GameApp\bin\Debug\LevelLibs\BasicLevelLib.dll");
-                                System.Type basicLevelTypeclassRef = FindClass(basicLevelLib, "BasicLevelLib.BasicLevelType");
+                                System.Type basicLevelTypeclassRef = CheckConditionLib.CheckConditionType.FindClass(basicLevelLib, "BasicLevelLib.BasicLevelType");
                                 Object objRef = System.Activator.CreateInstance(basicLevelTypeclassRef);
                                 System.Reflection.MethodInfo methodInfo = basicLevelTypeclassRef.GetMethod("Play");
-                                object result = InvokeMethod(objRef, methodInfo, new object[] { });
+                                object result = CheckConditionLib.CheckConditionType.InvokeMethod(objRef, methodInfo, new object[] { });
                                 Console.WriteLine(result.ToString());
                                 break;
 
@@ -47,22 +49,23 @@ namespace GameApp
                                 Console.WriteLine("Intermediate Level");
                                 System.Reflection.Assembly intermediateeLevelLib =
                                 System.Reflection.Assembly.LoadFile(@"C:\Users\ubedullah.patait\Documents\GitHub\latebinding-using-reflection-ubedullahpatait\GameApp\GameApp\bin\Debug\LevelLibs\IntermediateLevelLib.dll");
-                                System.Type intermediateLevelTypeclassRef = FindClass(intermediateeLevelLib, "IntermediateLevelLib.IntermediateLevelType");
+                                System.Type intermediateLevelTypeclassRef = CheckConditionLib.CheckConditionType.FindClass(intermediateeLevelLib, "IntermediateLevelLib.IntermediateLevelType");
                                 Object objReference = System.Activator.CreateInstance(intermediateLevelTypeclassRef);
                                 System.Reflection.MethodInfo methodInfo1 = intermediateLevelTypeclassRef.GetMethod("Start");
-                                object result1 = InvokeMethod(objReference, methodInfo1, new object[] { "ubed" });
+                                object result1 = CheckConditionLib.CheckConditionType.InvokeMethod(objReference, methodInfo1, new object[] { "ubed" });
                                 Console.WriteLine(result1.ToString());
                                 break;
 
 
                             case Options.ADVANCED:
+                                
                                 Console.WriteLine("Advance Level");
                                 System.Reflection.Assembly advanceLevelLib =
                                 System.Reflection.Assembly.LoadFile(@"C:\Users\ubedullah.patait\Documents\GitHub\latebinding-using-reflection-ubedullahpatait\GameApp\GameApp\bin\Debug\LevelLibs\AdvancedLevelLib.dll");
-                                System.Type advanceLevelTypeclassRef = FindClass(advanceLevelLib, "AdvancedLevelLib.AdvancedLevelType");
+                                System.Type advanceLevelTypeclassRef = CheckConditionLib.CheckConditionType.FindClass(advanceLevelLib, "AdvancedLevelLib.AdvancedLevelType");
                                 Object _objRef = System.Activator.CreateInstance(advanceLevelTypeclassRef);
                                 System.Reflection.MethodInfo _methodInfo = advanceLevelTypeclassRef.GetMethod("Begin");
-                                object result3 = InvokeMethod(_objRef, _methodInfo, new object[] { "ubed", 100 });
+                                object result3 =CheckConditionLib.CheckConditionType.InvokeMethod(_objRef, _methodInfo, new object[] { "ubed", 100 });
                                 Console.WriteLine(result3.ToString());
                                 
                                 break;
@@ -92,24 +95,7 @@ namespace GameApp
 
 
 
-        static System.Type FindClass(System.Reflection.Assembly _assemblyRef, string name)
-        {
-            System.Type classType = _assemblyRef.GetType(name);
-            if (classType != null)
-            {
-                if (classType.IsClass)
-                {
-                    return classType;
-                }
-            }
-            return null;
-        }
-
-
-        static object InvokeMethod(object source, System.Reflection.MethodInfo methodRef, object[] arguments)
-        {
-            return methodRef.Invoke(source,arguments);
-        }
+       
 
     }
 }
