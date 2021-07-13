@@ -16,7 +16,7 @@ namespace GameApp
 
         static void Main(string[] args)
         {
-
+            Console.WriteLine("Word Guess Game");
             int count = 3;
             do
             {
