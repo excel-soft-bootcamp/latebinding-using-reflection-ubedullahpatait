@@ -17,7 +17,7 @@ namespace HomeSecuritySolution
             DoorSensor _doorSensor = new DoorSensor();
             _doorSensor.OnSensorStatus += _addressOfNotify;
             _doorSensor.open();
-            _doorSensor.open();
+            _doorSensor.close();
             Console.ReadKey();
 
 
