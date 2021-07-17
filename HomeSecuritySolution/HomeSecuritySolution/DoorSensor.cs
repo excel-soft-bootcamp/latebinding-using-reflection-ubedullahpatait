@@ -29,8 +29,11 @@ namespace HomeSecuritySolution
 
         public void Notify()
         {
-            OnSensorStatus.Invoke(this.doorStatus);
+           var time = System.DateTime.Now;
+            String date = time.ToString("yyyy,MM,dd,hh");
 
+            string message = $"Door {doorStatus} and time is {time} {date}";
+            Console.WriteLine(message);
         }
       
 
